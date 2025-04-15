@@ -6,7 +6,6 @@ This is the main repository for the server (back-end) code for the Project - Ful
 The server provides a robust RESTful API to power the Campus Management System. It handles data storage and retrieval using PostgreSQL and Sequelize as the ORM. The API endpoints cover all CRUD operations required to manage campus and student data. It is designed to work in tandem with the [Client-Side Repository](https://github.com/Galactic-Avenger/Full-Stack-CRUD-Application-client-front-end-), which is built using React.
 
 
-----------
 ## Team Members
 - **Abdulla Saleh** - GitHub: @Galactic-Avenger
 - **Khandakar Wahiduzzaman** - GitHub: @KhandakarWahiduzzaman
