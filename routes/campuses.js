@@ -9,7 +9,6 @@ const express = require('express');
 const router = express.Router();
 // Import database models
 const { Student, Campus } = require('../database/models');
-
 // Import a middleware to replace "try and catch" for request handler, for a concise coding (fewer lines of code)
 const ash = require('express-async-handler');
 
@@ -26,7 +25,7 @@ const ash = require('express-async-handler');
 
 /* GET ALL CAMPUSES */
 router.get('/', ash(async(req, res) => {
-  let campuses = await Campus.findAll({include: [Student]});  // Get all campuses and their associated students
+  const campuses = await Campus.findAll({include: [Student]});  // Get all campuses and their associated students
   res.status(200).json(campuses);  // Status code 200 OK - request succeeded
 }));
 
