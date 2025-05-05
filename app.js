@@ -25,6 +25,7 @@ const syncDatabase = async () => {
     await seedDB();  
     console.log('--------Successfully seeded db--------');
   } 
+  // Error Handling
   catch (err) {
     console.error('syncDB error:', err);
   }  
@@ -54,15 +55,15 @@ const configureApp = async () => {
   // Handle routing error: Page Not Found
   // It is triggered when a request is made to an undefined route 
   app.use((req, res, next) => {
-    const error = new Error("Not Found, Please Check URL!");
+    const error = new Error("Not Found, Please Check URL!"); // Create a new error object with a message
     error.status = 404;  // Status code 404 Not Found - resource not found
     next(error);  // Call Error-Handling Middleware to handle the error
   });
   // Routing Error-Handling Middleware:
   // All Express routes' errors get passed to this when "next(error)" is called
   app.use((err, req, res, next) => {
-    console.error(err);
-    console.log(req.originalUrl);
+    console.error(err); // Log the error to the console
+    console.log(req.originalUrl); // Log the original URL that caused the error
     res.status(err.status || 500).send(err.message || "Internal server error.");  // Status code 500 Internal Server Error - server error
   });
 };
