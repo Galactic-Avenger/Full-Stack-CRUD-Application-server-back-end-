@@ -71,10 +71,14 @@ const configureApp = async () => {
 /* SET UP BOOT FOR SERVER APPLICATION */
 // Construct the boot process by incorporating all needed processes
 /* ACTIVATE THE SERVER PORT */
-const PORT = 5001;  // Server application access point port number
+const PORT =  process.env.PORT ||5001;  // Server application access point port number
 const bootApp = async () => {
-  await createDB();  // Create database (if not exists)
-  await syncDatabase();  // Seed the database
+  if (process.env.NODE_ENV !== 'production') {
+    await createDB();        // Only run locally
+    await syncDatabase();    // Only seed locally
+  } else {
+    await db.sync();         // Just sync tables in production
+  }
   await configureApp();  // Start and configure Express application
   app.listen(PORT, console.log(`Server started on ${PORT}`)); // Set up express application to use port 5000 as the access point for the server application.
 };
