@@ -28,24 +28,24 @@ const seedDB = async () => {
 	
 	// Create a new student and the student details for a campus named "Joe Smith"
 	const dummy_student = await Student.create({
-		firstname: "Joe",
-      	lastname: "Smith",
+		firstName: "Joe",
+      	lastName: "Smith",
 	  	email:     "john.doe@example.com",    
    		imageUrl:  "/default-student.png",    
     	gpa:       3.2                        
 	});
 	// Create a new student and the student details for a campus named "Mary Johnson"
 	const dummy_student2 = await Student.create({
-		firstname: "Mary",
-     	lastname: "Johnson",
+		firstName: "Mary",
+     	lastName: "Johnson",
 	  	email:     "mary.johnson@example.com",    
 	  	imageUrl:  "/default-student.png",    
 		gpa:       3.8   
 	});
 	// Create a new student and the student details for a campus named "Khandakar Wahiduzzaman"
 	const dummy_student3 = await Student.create({
-		firstname: "Khandakar",
-	  	lastname: "Wahiduzzaman",
+		firstName: "Khandakar",
+	  	lastName: "Wahiduzzaman",
 	  	email:     "khandakar.wahiduzzaman@example.com",    
 	  	imageUrl:  "/default-student.png",    
 		gpa:       3.8   
