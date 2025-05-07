@@ -52,6 +52,18 @@ const configureApp = async () => {
   // Add main top-level URL path "/api" before sub-routes
   app.use("/api", apiRouter);  // Updated (complete) URL paths for API: "/api/students/", "/api/students/:id", "/api/campuses/", and "/api/campuses/:id"
 
+  // SEED ROUTE FOR PRODUCTION (TEMPORARY)
+const seedDB = require('./database/utils/seedDB');
+app.get('/seed', async (req, res) => {
+  try {
+    await seedDB();
+    res.send('Database seeded successfully!');
+  } catch (err) {
+    console.error('Seeding error:', err);
+    res.status(500).send('Failed to seed database.');
+  }
+});
+
   // Handle routing error: Page Not Found
   // It is triggered when a request is made to an undefined route 
   app.use((req, res, next) => {
