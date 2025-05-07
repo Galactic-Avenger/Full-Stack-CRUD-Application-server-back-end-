@@ -13,7 +13,7 @@ The server provides a robust RESTful API to power the Campus Management System. 
 
 ----------
 ### Live Link 
-[Website link](https://Galactic-Avenger.github.io/Full-Stack-CRUD-Application-server-back-end-/)
+[Website link](https://Galactic-Avenger.github.io/Full-Stack-CRUD-Application-client-front-end-/)
 
 ----------
 **Prerequisites**
