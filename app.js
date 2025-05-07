@@ -11,6 +11,9 @@ const createDB = require('./database/utils/createDB');  // Import function to cr
 const seedDB = require('./database/utils/seedDB');  // Import function to seed database
 // Import database instance for database connection (including database name, username, and password)
 const db = require('./database');
+// To allow frontend origin
+const cors = require('cors');
+
 
 /* MODEL SYNCHRONIZATION & DATABASE SEEDING */
 // Set up sync and seed process
@@ -36,6 +39,11 @@ const syncDatabase = async () => {
 const express = require("express");
 // Create an Express application called "app"
 const app = express();
+
+// Allow requests from GitHub Pages frontend
+app.use(cors({
+  origin: 'https://galactic-avenger.github.io'
+}));
 
 /* SET UP ROUTES */
 // Import sub-routes and associated router functions for students and campuses
