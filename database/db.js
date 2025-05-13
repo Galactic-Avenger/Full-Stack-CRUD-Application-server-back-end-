@@ -5,7 +5,7 @@ It sets up Sequelize with Postgres database.
 - Create a Sequelize instance to connect to the database specifying database name, username, and password.
 ==================================================*/
 /* INSTANTIATE DATABASE */ 
-
+const { dbName, dbUser, dbPwd } = require('./utils/configDB');
 require('dotenv').config();
 const Sequelize = require('sequelize');
 
@@ -17,7 +17,7 @@ const connectionString = process.env.DATABASE_URL;
 let db;
 
 if (isProduction && connectionString) {
-  // For Render or other production environments
+  // If Render backend server or other production environments is used
   db = new Sequelize(connectionString, {
     dialect: 'postgres',
     protocol: 'postgres',
@@ -29,11 +29,6 @@ if (isProduction && connectionString) {
     },
   });
 } else {
-  // For local development — fallback to explicit credentials
-  const dbName = 'starter-server';
-  const dbUser = 'postgres'; // update if needed
-  const dbPwd = '1025';      // make sure this is a string!
-
   db = new Sequelize(dbName, dbUser, dbPwd, {
     host: 'localhost',
     dialect: 'postgres',

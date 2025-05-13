@@ -11,13 +11,15 @@ const seedDB = async () => {
 	const dummy_campus = await Campus.create({
 		name: "Hunter College",
 		address: "695 Park Ave, New York, NY 10065",
-		description: "This is a school in New York, New York."
+		description: "This is a school in New York, New York.",
+		imageUrl: "https://www.greatvaluecolleges.net/wp-content/uploads/2020/01/cuny-hunter-college.jpg"
 	});
 	// Create a new campus and the campus details named "Queens College"
 	const dummy_campus2 = await Campus.create({
 		name: "Queens College",
 		address: "65-30 Kissena Blvd, Queens, NY 11367",
-		description: "This is a school in Queens, New York."
+		description: "This is a school in Queens, New York.",
+		imageUrl: "https://www.qc.cuny.edu/communications/wp-content/uploads/sites/21/2023/08/QC_CUNY_logo_w_bg-01.png"
 	});
 	// Create a new campus and the campus details named "Brooklyn College"
 	const dummy_campus3 = await Campus.create({
@@ -50,11 +52,20 @@ const seedDB = async () => {
 	  	imageUrl:  "/default-student.png",    
 		gpa:       3.8   
 	});
+	// Create a new student and the student details for a campus named "Abdulla Saleh"
+	const dummy_student4 = await Student.create({
+		firstName: "Abdulla",
+	  	lastName: "Saleh",
+	  	email:     "Abdulla.Saleh@example.com",    
+	  	imageUrl:  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvGxj09OCvV9FRDSqZUsbfh7MNfCLFG8nKOw&s",    
+		gpa:       3.9  
+	});
 
 	// Add students to campuses
 	await dummy_student.setCampus(dummy_campus);
 	await dummy_student2.setCampus(dummy_campus2);
 	await dummy_student3.setCampus(dummy_campus3);
+	await dummy_student3.setCampus(dummy_campus);
 }
 
 // Export the database seeding function
