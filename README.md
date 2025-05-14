@@ -11,9 +11,6 @@ The server provides a robust RESTful API to power the Campus Management System. 
 - **Khandakar Wahiduzzaman** - GitHub: @KhandakarWahiduzzaman
 - **Leo Chen** - GitHub: @lc6003
 
-----------
-### Live Link 
-[Website link](https://Galactic-Avenger.github.io/Full-Stack-CRUD-Application-client-front-end-/)
 
 ----------
 **Prerequisites**
